@@ -1,26 +1,46 @@
-﻿int number = 0;
+﻿int count = 0;
 
-Console.Write("Input a number to check if it is a prime number: ");
+Console.WriteLine("Input how many number you what to check: ");
 try
 {
-    number = Convert.ToInt32(Console.ReadLine());
+    count = Convert.ToInt32(Console.ReadLine());
 }
 catch
 {
     Console.WriteLine("Wrong input. Not a number!!!");
 }
 
-bool result = true;
-for (int i = 2; i < number / 2; i++)
+int[] numbers = new int[count];
+bool[] results = new bool[count];
+
+Console.Write("Input a number/numbers to check if it is a prime number: ");
+
+for (int i = 0; i < count; i++)
 {
-    if (number % i == 0)
+    try
     {
-        result = false;
-        break;
+        numbers[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    catch
+    {
+        Console.WriteLine("Wrong input. Not a number!!!");
+    }
+
+
+    for (int j = 2; j <= numbers[i] / 2; j++)
+    {
+        if (numbers[i] % j == 0)
+        {
+            results[i] = true;
+            break;
+        }
     }
 }
+Console.Clear();
 
-if (result)
-    Console.WriteLine("This is a prime number :)");
-else
-    Console.WriteLine("This is not a prime number :(");
+
+for (int i = 0; i < count; i++)
+{
+    if (results[i]) Console.WriteLine($"{numbers[i]} is not a prime number :(");
+    else Console.WriteLine($"{numbers[i]} is a prime number :)");
+}

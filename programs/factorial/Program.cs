@@ -38,7 +38,6 @@ for (int i = 0; i < factorial.Length; i++)
     {
         for (int j = factorial[i] - 1; j > 1; j--)
         {
-            Console.WriteLine(factorial[i] + " " + j);
             factorial[i] *= j;
 
         }

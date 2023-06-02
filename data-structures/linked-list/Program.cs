@@ -3,6 +3,7 @@ list.InsertAtTop(20);
 list.InsertAtBottom(64);
 list.InsertAtBottom(2);
 list.InsertAtTop(53);
+list.Remove(64);
 list.Print();
 
 Console.WriteLine("\n\nPress any key to exit the program.");
@@ -42,6 +43,23 @@ class LinkedList
                 tmp = tmp.next;
             }
             tmp.next = new Element(value);
+        }
+    }
+
+    public void Remove(int value)
+    {
+        Element tmp = first;
+        while (tmp.next != null && tmp.next.value != value)
+        {
+            tmp = tmp.next;
+        }
+        if(tmp.next != null)
+        {
+            tmp.next = tmp.next.next;
+        }
+        else
+        {
+            tmp.next = null;
         }
     }
 

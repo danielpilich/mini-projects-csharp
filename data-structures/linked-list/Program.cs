@@ -1,11 +1,11 @@
 ﻿LinkedList list = new LinkedList();
-list.Insertion(20);
-list.Insertion(64);
-list.Insertion(2);
-list.Insertion(53);
+list.InsertAtTop(20);
+list.InsertAtBottom(64);
+list.InsertAtBottom(2);
+list.InsertAtTop(53);
 list.Print();
 
-Console.WriteLine("Press any key to exit the program.");
+Console.WriteLine("\n\nPress any key to exit the program.");
 Console.ReadKey();
 
 class LinkedList
@@ -20,7 +20,15 @@ class LinkedList
         }
     }
     private Element first = null;
-    public void Insertion(int value)
+
+    public void InsertAtTop(int value)
+    {
+        Element tmp = new Element(value);
+        tmp.next = first;
+        first = tmp;
+    }
+
+    public void InsertAtBottom(int value)
     {
         if (first == null)
         {
@@ -36,6 +44,7 @@ class LinkedList
             tmp.next = new Element(value);
         }
     }
+
     public void Print()
     {
         if (first == null)
